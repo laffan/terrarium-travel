@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Terrarium Travel</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="assets/styles.css">
+	<script src="assets/scripts.js"></script>
+
+</head>
+<body>
+
+  <div class="Content"></div>
+
+
+	<script type="text/template" id="template-post">
+
+    <div class="Post Post-Intro" style="background: url(assets/img/passport-bg.jpg)" >
+
+      <h1>Terrarium Travel</h1>
+
+    </div>
+
+
+    <% var count = 0; %>
+    <% _.each(posts, function(post) { %>
+    <% count++; %>
+
+    <% var readableDate = moment(post.date).format("MMMM Do, YYYY"); %>
+
+
+    <div class="Post" style="background: url(tt_images/web/<%= post.img %>-500px.jpg)">
+
+      <div class="Post-Info">
+    		<h3><%= post.placename %></h3>
+        <div class="Post-DateLinks">
+          <a href="<%= post.link_google %>" target="_blank">Google Pano</a>
+      		<a href="<%= post.link_rsv %>" target="_blank">RSV Pano</a>
+        </div>
+      </div>
+
+    </div>
+
+    <% if (count == 4) { %>
+
+      <div class="Post Post-Explain">
+
+        <div class="Post-Explain-Content">
+          <p>In 2015,  while waiting for my girlfriend to finish grad school, I got my travel fix by spending hour after hour after hour just surfing Google StreetView.  After a while, I started taking screenshots of the places I liked, thinking of them as a kind of travel photo.</p>
+
+          <p>These are those "photos", along with links to where I captured them. <a href="http://www.natelaffan.com/">-n</a> </p>
+        </div>
+
+      </div>
+    <% } %>
+
+    <% }); %>
+
+	</script>
+
+</body>
+</html>
