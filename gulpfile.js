@@ -57,14 +57,16 @@ gulp.task('images', function () {
           extname: '.jpg',
         },
         format: 'jpeg',
-      }, {
-        width: 1200,
-        rename: {
-          suffix: '-1200px',
-          extname: '.jpg',
-        },
-        withoutEnlargement: true,
-      }],
+      }
+      // ,{
+      //   width: 1200,
+      //   rename: {
+      //     suffix: '-1200px',
+      //     extname: '.jpg',
+      //   },
+      //   withoutEnlargement: true,
+      // }
+    ],
     }, {
       quality: 80,
       progressive: true,

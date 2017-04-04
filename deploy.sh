@@ -1,5 +1,5 @@
 # Package
-tar --exclude='./node_modules' --exclude='./tt_images/originals' --exclude='./deploy.sh' --exclude='./gulpfile.js' --exclude='./package.json' -zcvf terrarium.tar.gz .
+tar --exclude='./.git' --exclude='./.gitignore' --exclude='./node_modules' --exclude='./tt_images/originals' --exclude='./deploy.sh' --exclude='./gulpfile.js' --exclude='./package.json' -zcvf terrarium.tar.gz .
 
 # Ship
 scp -i ~/.ssh/digitalocean_nl terrarium.tar.gz root@198.199.104.48:/../var/www/

@@ -26,6 +26,35 @@ $(document).ready(function()
 
       $('body').html( template( TT.posts ) );
 
+      TT.adjustPlacement();
+
+    },
+
+    adjustPlacement: function(){
+
+      function adjust(parent, target){
+
+        outerHeight = parent.outerHeight();
+        innerHeight = parent.find(target).outerHeight();
+
+        parent.find(target).css({
+          marginTop: (outerHeight/2) - (innerHeight / 2)
+        });
+
+
+      }
+
+      $(window).on('resize', function(){
+        adjust( $('.Post-Intro'), 'h1' );
+        adjust( $('.Post-Explain'), 'span' );
+        
+      });
+
+      adjust( $('.Post-Intro'), 'h1' );
+      adjust( $('.Post-Explain'), 'span' );
+
+
+
     }
 
   };
