@@ -1,10 +1,11 @@
 # terrarium-travel
-A collection of travel photos from google earth.
+A collection of travel photos from Google Street View, discovered via randomstreetview.com.
+
 
 ## To Do
 - Something involving panos and portals.
 
-## To add
+## To Add
 
 - Unnamed Road, Isle of Eigg, Highland PH42 4RL, UK
   - http://randomstreetview.com/#xvqf6_-3o1vn_5x_a_-2
