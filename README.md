@@ -18,4 +18,6 @@ A collection of travel photos from Google Street View, discovered via randomstre
   - https://www.google.com/maps/@-45.1531945,-73.5078467,0a,73.7y,17.12h,92.46t/data=!3m4!1e1!3m2!1sAF1QipMLb_woA9O3Z5_o8NFdEQpUV_O2FYBITrm4HN8!2e10?source=apiv3
 - Gomati Beach
   - https://www.google.com/maps/@39.9914125,25.1499514,3a,75y,22.29h,98.37t/data=!3m8!1e1!3m6!1sAF1QipPz65H7-dqONGIeCJpeGHOSwkxHs-aflcf3JM7f!2e10!3e11!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPz65H7-dqONGIeCJpeGHOSwkxHs-aflcf3JM7f%3Dw203-h100-k-no-pi-0-ya139.62975-ro-0-fo100!7i8704!8i4352
-  
+- Unnamed Road, Isle of Eigg, Highland PH42 4RL, UK
+  - https://www.google.com/maps?ll=56.936024,-6.147273&z=6&t=m&hl=en-US&gl=US&mapclient=apiv3
+  - http://randomstreetview.com/#xvqf6_-3o1vn_1e_a_-9
