@@ -1,0 +1,331 @@
+:root {
+  --iconSize: 45px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 20px;
+  height: 100vh;
+  align-items: center;
+  justify-items: center;
+}
+
+.viewmaster-container {
+  width: min(80vw, 900px);
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-layer {
+  position: relative;
+  z-index: 1;
+}
+
+.light-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes subtleFlicker {
+  0%, 100% { opacity: 1; }
+  3% { opacity: 0.82; }
+  6% { opacity: 1; }
+  12% { opacity: 0.94; }
+  15% { opacity: 1; }
+  45% { opacity: 0.81; }
+  48% { opacity: 1; }
+  78% { opacity: 0.93; }
+  81% { opacity: 1; }
+}
+
+.mask-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  mask-image: url('assets/img/light-mask.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('assets/img/light-mask.png');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  
+}
+
+.photo-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(217, 216, 208);
+}
+
+.photo-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.45s cubic-bezier(1,-0.06,0.68,1.02);
+}
+
+.photo-wrapper.current {
+  transform: translateY(0) rotate(0deg);
+  z-index: 2;
+}
+
+.photo-wrapper.next {
+  transform: translateY(-150%) rotate(-25.7deg);
+  z-index: 1;
+}
+
+.photo-wrapper.prev {
+  transform: translateY(150%) rotate(25.7deg);
+  z-index: 1;
+}
+
+.photo-wrapper.sliding-out-down {
+  transform: translateY(150%) rotate(25.7deg);
+  z-index: 1;
+}
+
+.photo-wrapper.sliding-out-up {
+  transform: translateY(-150%) rotate(-25.7deg);
+  z-index: 1;
+}
+
+.photo-wrapper.sliding-in-down {
+  transform: translateY(0) rotate(0deg);
+  z-index: 3;
+}
+
+.photo-wrapper.sliding-in-up {
+  transform: translateY(0) rotate(0deg);
+  z-index: 3;
+}
+
+.photo-image {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  mask-image: url('assets/img/mask.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('assets/img/mask.png');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  filter: grayscale(5%) sepia(8%) brightness(102%) hue-rotate(351deg) saturate(128%) contrast(111%) blur(0.4px);
+  /* -webkit-filter: grayscale(5%) sepia(8%) brightness(102%) hue-rotate(351deg) saturate(128%) contrast(111%);
+  -moz-filter: grayscale(5%) sepia(8%) brightness(102%) hue-rotate(351deg) saturate(128%) contrast(111%); */
+  animation: subtleFlicker 16s infinite;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.visit {
+  background-image: url('assets/img/plane.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  width: var(--iconSize);
+  height: var(--iconSize);
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+}
+
+.visit:hover {
+  opacity: 1;
+}
+
+.buttonPrev, .buttonNext {
+  background-color: transparent;
+  border: none;
+  width: var(--iconSize);
+  height: var(--iconSize);
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttonPrev {
+  background-image: url('assets/img/arrow-left.png');
+}
+
+.buttonNext {
+  background-image: url('assets/img/arrow-right.png');
+}
+
+.buttonPrev:hover, .buttonNext:hover {
+  opacity: 1;
+}
+
+.openInfoModal {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-image: url('assets/img/info.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+  z-index: 100;
+}
+
+.openInfoModal:hover {
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.infoModal {
+  background-color: #222;
+  color: #ccc;
+  border-radius: 8px;
+  width: 80%;
+  height: 80%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 30px;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay.active .infoModal {
+  transform: scale(1);
+}
+
+.infoModal h1, .infoModal h2, .infoModal h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.infoModal h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.infoModal h2 {
+  font-size: 20px;
+  margin-top: 25px;
+}
+
+.infoModal h3 {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.infoModal p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.infoModal a {
+  color: #88c999;
+  text-decoration: none;
+}
+
+.infoModal a:hover {
+  text-decoration: underline;
+}
+
+.infoModal code {
+  background-color: #333;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.infoModal pre {
+  background-color: #333;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 15px 0;
+}
+
+.infoModal blockquote {
+  border-left: 4px solid #555;
+  margin: 20px 0;
+  padding-left: 20px;
+  font-style: italic;
+}
+
+.infoModal ul, .infoModal ol {
+  margin: 15px 0;
+  padding-left: 25px;
+}
+
+.infoModal li {
+  margin-bottom: 8px;
+}
+
+main.modal-active {
+  filter: blur(2px);
+  opacity: 0.3;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
